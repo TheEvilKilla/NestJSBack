@@ -20,4 +20,6 @@ export class UserEntity {
 
  @Column()
  image: string;
+
+
 }
