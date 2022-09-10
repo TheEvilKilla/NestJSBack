@@ -15,7 +15,7 @@ import { ScheduleModule } from './schedule/schedule.module';
       port: 5432,
       username: 'postgres',
       password: 'postgres',
-      database: 'museum',
+      database: 'pet-friendly',
       entities: [EventEntity, ScheduleEntity],
       dropSchema: true,
       synchronize: true,
