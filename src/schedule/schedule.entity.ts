@@ -1,7 +1,9 @@
-import { EventEntity } from "../event/event.entity";
 import { Column, OneToMany } from "typeorm";
 import { Entity } from "typeorm";
 import { PrimaryGeneratedColumn } from "typeorm";
+import { EventEntity } from "../event/event.entity";
+import { EstablishmentEntity } from "../establishment/establishment.entity";
+
 
 /**
  * Entidad Event. Define los eventos de la aplicacion. Un evento es cualquier actividad ingresada
@@ -10,6 +12,7 @@ import { PrimaryGeneratedColumn } from "typeorm";
  * 
  * @Entity Indica que la clase es una entidad que sera mapeada a una tabla en la base de datos.
  */
+@Entity()
 export class ScheduleEntity {
     /**
      * Identificador del horario.
@@ -43,6 +46,19 @@ export class ScheduleEntity {
     @Column()
     days: string;
 
+    /**
+     * Evento al que pertenece el horario.
+     * 
+     * @OneToMany Relacion uno a muchos.
+     */
     @OneToMany(() => EventEntity, event => event.schedules)
     event: EventEntity;
+
+    /**
+     * Establecimientos en los que se puede desarrollar un evento.
+     * 
+     * @OneToMany Relacion uno a muchos.
+     */
+    @OneToMany(() => EstablishmentEntity, establishment => establishment.events)
+    establishments: EstablishmentEntity[];
 }
