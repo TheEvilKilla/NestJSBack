@@ -1,14 +1,24 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { EstablishmentEntity } from 'src/establishment/establishment.entity';
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class QuestionsEntity {
- @PrimaryGeneratedColumn('uuid')
- id: string; 
+export class QuestionEntity {
+   @PrimaryGeneratedColumn('uuid')
+   id: string;
 
- @Column()
- description: string;
- 
- @Column()
- date: Date; 
+   @Column()
+   description: string;
+
+   @Column()
+   date: Date;
+
+   @ManyToOne(() => EstablishmentEntity, establishment => establishment.questions)
+   establishment: EstablishmentEntity;
+
+   @OneToMany(() => QuestionEntity, answer => answer.question)
+   answers: QuestionEntity[];
+
+   @ManyToOne(() => QuestionEntity, answer => answer.question)
+   question: QuestionEntity;
 }

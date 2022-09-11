@@ -29,6 +29,4 @@ export class UserEntity {
    questions: QuestionEntity[];
  @OneToMany(() => ReviewEntity, review => review.user)
    reviews: ReviewEntity[];
-
-
 }

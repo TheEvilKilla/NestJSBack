@@ -1,4 +1,3 @@
-import { EstablishmentEntity } from './establishment/establishment.entity';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
@@ -14,8 +13,9 @@ import { PetModule } from './pet/pet.module';
 import { EstablishmentModule } from './establishment/establishment.module';
 import { ReviewEntity } from './review/review.entity';
 import { UserEntity } from './user/user.entity';
-import { QuestionsEntity } from './question/question.entity';
+import { QuestionEntity } from './question/question.entity';
 import { PetEntity } from './pet/pet.entity';
+import { EstablishmentEntity } from './establishment/establishment.entity';
 
 @Module({
   imports: [
@@ -38,7 +38,7 @@ import { PetEntity } from './pet/pet.entity';
         ScheduleEntity,
         ReviewEntity,
         UserEntity,
-        QuestionsEntity,
+        QuestionEntity,
         PetEntity,
         EstablishmentEntity,
       ],
@@ -50,4 +50,4 @@ import { PetEntity } from './pet/pet.entity';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
