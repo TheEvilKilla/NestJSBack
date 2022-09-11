@@ -1,6 +1,6 @@
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { EstablishmentEntity } from "src/establishment/establishment.entity";
 import { UserEntity } from "src/user/user.entity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class ReviewEntity {

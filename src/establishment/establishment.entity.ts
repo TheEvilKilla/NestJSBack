@@ -1,9 +1,8 @@
-/* eslint-disable prettier/prettier */
-import { ReviewEntity } from 'src/review/review.entity';
-import { QuestionEntity } from 'src/question/question.entity';
 import { Column, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { ScheduleEntity } from 'src/schedule/schedule.entity';
-import { EventEntity } from 'src/event/event.entity';
+import { ScheduleEntity } from '../schedule/schedule.entity';
+import { EventEntity } from '../event/event.entity';
+import { ReviewEntity } from '../review/review.entity';
+import { QuestionEntity } from '../question/question.entity';
 
 @Entity()
 export class EstablishmentEntity {
