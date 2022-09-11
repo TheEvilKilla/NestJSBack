@@ -6,12 +6,17 @@ import { EventEntity } from './event/event.entity';
 import { EventModule } from './event/event.module';
 import { ScheduleEntity } from './schedule/schedule.entity';
 import { ScheduleModule } from './schedule/schedule.module';
+import { QuestionModule } from './question/question.module';
 import { ReviewModule } from './review/review.module';
 import { UserModule } from './user/user.module';
 import { PetModule } from './pet/pet.module';
+import { ReviewEntity } from './review/review.entity';
+import { UserEntity } from './user/user.entity';
+import { QuestionsEntity } from './question/question.entity';
+import { PetEntity } from './pet/pet.entity';
 
 @Module({
-  imports: [EventModule, ScheduleModule,ReviewModule, UserModule, PetModule,
+  imports: [EventModule, ScheduleModule, ReviewModule, UserModule, QuestionModule, PetModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -19,11 +24,13 @@ import { PetModule } from './pet/pet.module';
       username: 'postgres',
       password: 'postgres',
       database: 'pet-friendly',
-      entities: [EventEntity, ScheduleEntity],
+      entities: [EventEntity, ScheduleEntity, ReviewEntity, UserEntity, QuestionsEntity, PetEntity,],
       dropSchema: true,
       synchronize: true,
       keepConnectionAlive: true
     }),
   ],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule { }
