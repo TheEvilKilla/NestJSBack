@@ -1,8 +1,9 @@
-import { ScheduleEntity } from "../schedule/schedule.entity";
-import { Column } from "typeorm";
+import { Column, ManyToMany } from "typeorm";
 import { Entity } from "typeorm";
 import { PrimaryGeneratedColumn } from "typeorm";
 import { ManyToOne } from "typeorm/decorator/relations/ManyToOne";
+import { EstablishmentEntity } from "../establishment/establishment.entity";
+import { ScheduleEntity } from "../schedule/schedule.entity";
 
 /**
  * Entidad Event. Define los eventos de la aplicacion. Un evento es cualquier actividad ingresada
@@ -67,4 +68,12 @@ export class EventEntity {
      */
     @ManyToOne(() => ScheduleEntity, schedule => schedule.event)
     schedules : ScheduleEntity[];
+
+    /**
+     * Relacion con el establecimiento en el que se puede realizar el evento.
+     * 
+     * @ManyToMany Relacion muchos a muchos.
+     */
+    @ManyToMany(() => EstablishmentEntity, establishment => establishment.schedule)
+    establishments: EstablishmentEntity[];
 }
