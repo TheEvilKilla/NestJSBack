@@ -59,6 +59,6 @@ export class ScheduleEntity {
      * 
      * @OneToMany Relacion uno a muchos.
      */
-    @OneToMany(() => EstablishmentEntity, establishment => establishment.events)
+    @OneToMany(() => EstablishmentEntity, establishment => establishment.event)
     establishments: EstablishmentEntity[];
 }

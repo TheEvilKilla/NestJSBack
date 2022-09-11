@@ -18,10 +18,10 @@ export class ReviewEntity {
 
 
     @ManyToOne(() => UserEntity, user => user.reviews)
-   user: UserEntity;
+    user: UserEntity;
 
-   @ManyToOne(() => EstablishmentEntity, establisment => user.reviews)
-   establisment: EstablishmentEntity;
+    @ManyToOne(() => EstablishmentEntity, establisment => establisment.reviews)
+    establishment: EstablishmentEntity;
 
 }
 

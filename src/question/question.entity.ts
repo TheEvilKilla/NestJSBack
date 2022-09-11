@@ -4,22 +4,21 @@ import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'ty
 
 @Entity()
 export class QuestionEntity {
- @PrimaryGeneratedColumn('uuid')
- id: string; 
+   @PrimaryGeneratedColumn('uuid')
+   id: string;
 
- @Column()
- description: string;
- 
- @Column()
- date: Date; 
+   @Column()
+   description: string;
 
-@ManyToOne(() => EstablishmentEntity, establishment => establishment.questions)
- establishMent: EstablishmentEntity;
+   @Column()
+   date: Date;
 
-@OneToMany(() => QuestionEntity, answer => answer.question)
+   @ManyToOne(() => EstablishmentEntity, establishment => establishment.questions)
+   establishment: EstablishmentEntity;
+
+   @OneToMany(() => QuestionEntity, answer => answer.question)
    answers: QuestionEntity[];
 
-@ManyToOne(() => QuestionEntity, answer => answer.question)
- question: QuestionEntity;
-
+   @ManyToOne(() => QuestionEntity, answer => answer.question)
+   question: QuestionEntity;
 }
