@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { UserEntity } from 'src/user/user.entity';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class PetEntity {
@@ -14,4 +15,8 @@ export class PetEntity {
 
  @Column()
  image: string;
+
+ @ManyToOne(() => UserEntity, user => user.pets)
+ user: UserEntity;
+
 }
