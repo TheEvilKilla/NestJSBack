@@ -14,7 +14,7 @@ import { PetModule } from './pet/pet.module';
 import { EstablishmentModule } from './establishment/establishment.module';
 import { ReviewEntity } from './review/review.entity';
 import { UserEntity } from './user/user.entity';
-import { QuestionsEntity } from './question/question.entity';
+import { QuestionEntity } from './question/question.entity';
 import { PetEntity } from './pet/pet.entity';
 
 @Module({
@@ -38,7 +38,7 @@ import { PetEntity } from './pet/pet.entity';
         ScheduleEntity,
         ReviewEntity,
         UserEntity,
-        QuestionsEntity,
+        QuestionEntity,
         PetEntity,
         EstablishmentEntity,
       ],
