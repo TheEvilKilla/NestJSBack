@@ -6,9 +6,12 @@ import { EventEntity } from './event/event.entity';
 import { EventModule } from './event/event.module';
 import { ScheduleEntity } from './schedule/schedule.entity';
 import { ScheduleModule } from './schedule/schedule.module';
+import { ReviewModule } from './review/review.module';
+import { UserModule } from './user/user.module';
+import { PetModule } from './pet/pet.module';
 
 @Module({
-  imports: [EventModule, ScheduleModule,
+  imports: [EventModule, ScheduleModule,ReviewModule, UserModule, PetModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -22,7 +25,5 @@ import { ScheduleModule } from './schedule/schedule.module';
       keepConnectionAlive: true
     }),
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule { }
